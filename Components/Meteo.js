@@ -2,16 +2,11 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { View, Container, Card, CardItem, Header, Title, Toast, Content, Footer, FooterTab, Left, Right, Body, Icon, Text, Navigator} from 'native-base';
 import { StyleSheet, Image, ImageBackground, TextInput, Switch, Button } from 'react-native';
 import axios from 'axios';
-
-//eced594b96163afb9298f5fb0bb472f2
-//https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=b6907d289e10d714a6e88b30761fae22
+import { apiKeyWeather } from '../config.js';
 
 
 
 function Weather (){
-
-
-
 
   const [weather, setWeather] = useState([
     {
@@ -25,12 +20,8 @@ function Weather (){
       temp: 0,
       humidity: 0}
   ]);
+
     
-  const apiKey = 'eced594b96163afb9298f5fb0bb472f2';
-  
-
-
-
   handleInfos = () => {
       if (weather.data){
         return (
@@ -49,7 +40,7 @@ function Weather (){
 
   useEffect (() => {
     navigator.geolocation.getCurrentPosition((position) => {
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${apiKey}`) 
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${apiKeyWeather}`) 
       
       .then((response) =>{
         setWeather({
@@ -76,7 +67,7 @@ function Weather (){
 
     weather.testName ? setWeather({name: weather.testName }): null
 
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${weather.name}&units=metric&appid=${apiKey}`)
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${weather.name}&units=metric&appid=${apiKeyWeather}`)
     .then((response) =>{
       setWeather({
         data: true,
