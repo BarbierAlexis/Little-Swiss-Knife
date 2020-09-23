@@ -1,48 +1,110 @@
-import React, { Component, useState } from 'react';
-import { Container, Root, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
-import { SafeAreaView, FlatList } from 'react-native';
-import Todos from './Components/Todos';
-import CtxTodo from './Components/CtxTodo';
-import FormTodo from './Components/FormTodo';
-import Navbar from './Components/Navbar';
-import FooterContent from './Components/FooterContent';
-import Swiper from 'react-native-swiper';
-import Meteo from './Components/Meteo';
+import 'react-native-gesture-handler';
+import React, { useState } from 'react';
+import { View, StyleSheet, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import CtxTodo from './components/CtxTodo';
 
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
 
-function App () {
+import HomePage from './components/HomePage';
+import Todos from './components/Todos';
+import Meteo from './components/Meteo';
+import Calendar from './components/Calendar';
+import SettingsScreen from './components/SettingsScreen';
+
+
+const Drawer = createDrawerNavigator();
+const HomeStack = createStackNavigator();
+const TodosStack = createStackNavigator();
+const MeteoStack = createStackNavigator();
+const CalendarStack = createStackNavigator();
+const SettingsStack = createStackNavigator();
+
+const HomeStackScreen = ({ navigation }) => (
+  <HomeStack.Navigator>
+    <HomeStack.Screen name='Home' component={HomePage} options={{
+      title: 'Mon Aplication',
+      headerLeft: () => (
+        <Icon.Button name="ios-menu" size={25} backgroundColor="#000000" onPress={() => navigation.openDrawer()}></Icon.Button>
+      )
+    }} />
+  </HomeStack.Navigator>
+);
+
+const TodosStackScreen = ({ navigation }) => (
+  <TodosStack.Navigator>
+    <TodosStack.Screen name='Todos' component={Todos} options={{
+      title: 'Mon Aplication',
+      headerLeft: () => (
+        <Icon.Button name="ios-menu" size={25} backgroundColor="#000000" onPress={() => navigation.openDrawer()}></Icon.Button>
+      )
+    }} />
+  </TodosStack.Navigator>
+);
+
+const MeteoStackScreen = ({ navigation }) => (
+  <MeteoStack.Navigator>
+    <MeteoStack.Screen name='Meteo' component={Meteo} options={{
+      title: 'Mon Aplication',
+      headerLeft: () => (
+        <Icon.Button name="ios-menu" size={25} backgroundColor="#000000" onPress={() => navigation.openDrawer()}></Icon.Button>
+      )
+    }} />
+  </MeteoStack.Navigator>
+);
+
+const CalendarStackScreen = ({ navigation }) => (
+  <CalendarStack.Navigator>
+    <CalendarStack.Screen name='Calendar' component={Calendar} options={{
+      title: 'Mon Aplication',
+      headerLeft: () => (
+        <Icon.Button name="ios-menu" size={25} backgroundColor="#000000" onPress={() => navigation.openDrawer()}></Icon.Button>
+      )
+    }} />
+  </CalendarStack.Navigator>
+);
+
+const SettingsStackScreen = ({ navigation }) => (
+  <SettingsStack.Navigator>
+    <SettingsStack.Screen name='Settings' component={SettingsScreen} options={{
+      title: 'Mon Aplication',
+      headerLeft: () => (
+        <Icon.Button name="ios-menu" size={25} backgroundColor="#000000" onPress={() => navigation.openDrawer()}></Icon.Button>
+      )
+    }} />
+  </SettingsStack.Navigator>
+);
+
+const App = () => {
   const [todos, setTodos] = useState([]);
 
+
+
   return (
-    <Root>
-      <Container>
-        <Navbar />
-        <CtxTodo.Provider value={[todos, setTodos]}>
-          <Swiper 
-          loop={false}
-          showsPagination={true}>
-            
-          <Swiper 
-          loop={false}
-          showsPagination={true}
-          horizontal={false}>
-            <SafeAreaView>
-              <Todos />
-            </SafeAreaView>
-            <SafeAreaView>
-              <FormTodo />
-            </SafeAreaView>
-          </Swiper>
-            <SafeAreaView>
-             <Meteo />
-            </SafeAreaView>
-          </Swiper>
-          
-        </CtxTodo.Provider>
-      </Container>
-    </Root>
+    <CtxTodo.Provider value={[todos, setTodos]}>
+      <NavigationContainer>
+        <Drawer.Navigator initialRouteName="Home">
+          <Drawer.Screen name="Home" component={HomeStackScreen} />
+          <Drawer.Screen name="Todos" component={TodosStackScreen} />
+          <Drawer.Screen name="Meteo" component={MeteoStackScreen} />
+          <Drawer.Screen name="Calendar" component={CalendarStackScreen} />
+          <Drawer.Screen name="Settings" component={SettingsStackScreen} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </CtxTodo.Provider>
+
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
 
 export default App;
