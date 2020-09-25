@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import React, { useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import { Root } from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
 import CtxTodo from './components/CtxTodo';
 
@@ -26,9 +27,17 @@ const SettingsStack = createStackNavigator();
 const HomeStackScreen = ({ navigation }) => (
   <HomeStack.Navigator>
     <HomeStack.Screen name='Home' component={HomePage} options={{
-      title: 'Mon Aplication',
-      headerLeft: () => (
-        <Icon.Button name="ios-menu" size={25} backgroundColor="#000000" onPress={() => navigation.openDrawer()}></Icon.Button>
+      title: 'Mon Application',
+      headerStyle: {
+        backgroundColor: '#ff5e5e',
+      },
+      headerTintColor: '#ffffff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        fontSize: 23
+      },
+      headerRight: () => (
+        <Icon.Button name="ios-menu" size={25} backgroundColor="#ff5e5e" color="#ffffff" onPress={() => navigation.openDrawer()}></Icon.Button>
       )
     }} />
   </HomeStack.Navigator>
@@ -37,9 +46,17 @@ const HomeStackScreen = ({ navigation }) => (
 const TodosStackScreen = ({ navigation }) => (
   <TodosStack.Navigator>
     <TodosStack.Screen name='Todos' component={Todos} options={{
-      title: 'Mon Aplication',
-      headerLeft: () => (
-        <Icon.Button name="ios-menu" size={25} backgroundColor="#000000" onPress={() => navigation.openDrawer()}></Icon.Button>
+      title: 'Mon Application',
+      headerStyle: {
+        backgroundColor: '#ff5e5e',
+      },
+      headerTintColor: '#ffffff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        fontSize: 23
+      },
+      headerRight: () => (
+        <Icon.Button name="ios-menu" size={25} backgroundColor="#ff5e5e" color="#ffffff" onPress={() => navigation.openDrawer()}></Icon.Button>
       )
     }} />
   </TodosStack.Navigator>
@@ -48,9 +65,16 @@ const TodosStackScreen = ({ navigation }) => (
 const MeteoStackScreen = ({ navigation }) => (
   <MeteoStack.Navigator>
     <MeteoStack.Screen name='Meteo' component={Meteo} options={{
-      title: 'Mon Aplication',
-      headerLeft: () => (
-        <Icon.Button name="ios-menu" size={25} backgroundColor="#000000" onPress={() => navigation.openDrawer()}></Icon.Button>
+      title: 'Mon Application',
+      headerStyle: {
+        backgroundColor: '#ff5e5e',
+      },
+      headerTintColor: '#ffffff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+      headerRight: () => (
+        <Icon.Button name="ios-menu" size={25} backgroundColor="#ff5e5e" color="#ffffff" onPress={() => navigation.openDrawer()}></Icon.Button>
       )
     }} />
   </MeteoStack.Navigator>
@@ -59,9 +83,16 @@ const MeteoStackScreen = ({ navigation }) => (
 const CalendarStackScreen = ({ navigation }) => (
   <CalendarStack.Navigator>
     <CalendarStack.Screen name='Calendar' component={Calendar} options={{
-      title: 'Mon Aplication',
-      headerLeft: () => (
-        <Icon.Button name="ios-menu" size={25} backgroundColor="#000000" onPress={() => navigation.openDrawer()}></Icon.Button>
+      title: 'Mon Application',
+      headerStyle: {
+        backgroundColor: '#ff5e5e',
+      },
+      headerTintColor: '#ffffff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+      headerRight: () => (
+        <Icon.Button name="ios-menu" size={25} backgroundColor="#ff5e5e" color="#ffffff" onPress={() => navigation.openDrawer()}></Icon.Button>
       )
     }} />
   </CalendarStack.Navigator>
@@ -70,9 +101,16 @@ const CalendarStackScreen = ({ navigation }) => (
 const SettingsStackScreen = ({ navigation }) => (
   <SettingsStack.Navigator>
     <SettingsStack.Screen name='Settings' component={SettingsScreen} options={{
-      title: 'Mon Aplication',
-      headerLeft: () => (
-        <Icon.Button name="ios-menu" size={25} backgroundColor="#000000" onPress={() => navigation.openDrawer()}></Icon.Button>
+      title: 'Mon Application',
+      headerStyle: {
+        backgroundColor: '#ff5e5e',
+      },
+      headerTintColor: '#ffffff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+      headerRight: () => (
+        <Icon.Button name="ios-menu" size={25} backgroundColor="#ff5e5e" color="#ffffff" onPress={() => navigation.openDrawer()}></Icon.Button>
       )
     }} />
   </SettingsStack.Navigator>
@@ -84,18 +122,19 @@ const App = () => {
 
 
   return (
-    <CtxTodo.Provider value={[todos, setTodos]}>
-      <NavigationContainer>
-        <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen name="Home" component={HomeStackScreen} />
-          <Drawer.Screen name="Todos" component={TodosStackScreen} />
-          <Drawer.Screen name="Meteo" component={MeteoStackScreen} />
-          <Drawer.Screen name="Calendar" component={CalendarStackScreen} />
-          <Drawer.Screen name="Settings" component={SettingsStackScreen} />
-        </Drawer.Navigator>
-      </NavigationContainer>
-    </CtxTodo.Provider>
-
+    <Root>
+      <CtxTodo.Provider value={[todos, setTodos]}>
+        <NavigationContainer style={styles.container}>
+          <Drawer.Navigator initialRouteName="Home">
+            <Drawer.Screen name="Home" component={HomeStackScreen} />
+            <Drawer.Screen name="Todos" component={TodosStackScreen} />
+            <Drawer.Screen name="Meteo" component={MeteoStackScreen} />
+            <Drawer.Screen name="Calendar" component={CalendarStackScreen} />
+            <Drawer.Screen name="Settings" component={SettingsStackScreen} />
+          </Drawer.Navigator>
+        </NavigationContainer>
+      </CtxTodo.Provider>
+    </Root>
   );
 }
 

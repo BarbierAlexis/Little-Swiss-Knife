@@ -1,6 +1,6 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { View, Container, Card, CardItem, Header, Title, Toast, Content, Footer, FooterTab, Left, Right, Body, Icon, Text, Navigator } from 'native-base';
-import { StyleSheet, Image, ImageBackground, TextInput, Switch, Button } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Container, Text } from 'native-base';
+import { StyleSheet, Image, TextInput, Button } from 'react-native';
 import axios from 'axios';
 import { apiKeyWeather } from '../config.js';
 
@@ -21,7 +21,6 @@ function Weather() {
       humidity: 0
     }
   ]);
-
 
   handleInfos = () => {
     if (weather.data) {
@@ -61,9 +60,6 @@ function Weather() {
     setWeather({ testName: value })
   };
 
-
-
-
   searchAction = () => {
 
     weather.testName ? setWeather({ name: weather.testName }) : null
@@ -83,31 +79,24 @@ function Weather() {
       })
   };
 
-
   return (
-
-    <View style={styles.view}>
+    <Container style={styles.container}>
       <TextInput onChangeText={value => handleInput(value)} placeholder="Enter your city" style={{ textAlign: "center", margin: 20 }} />
-      <Button title="Search" color="#f194ff" style={styles.searchButton} onPress={() => searchAction()} />
+      <Button title="Search" color="#ff5e5e" style={styles.searchButton} onPress={() => searchAction()} />
       {handleInfos()}
-    </View>
-
+    </Container>
   )
 };
 
-
 const styles = StyleSheet.create({
-
   searchButton: {
     borderWidth: 1,
-    borderColor: '#ffffff',
     height: 50,
     width: '80%'
-
   },
-  view: {
+  container: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   images: {
     width: 75,
@@ -116,9 +105,9 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: 'bold',
     fontSize: 30,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#999999'
   }
 });
-
 
 export default Weather;
