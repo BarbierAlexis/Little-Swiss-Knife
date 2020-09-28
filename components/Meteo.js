@@ -10,11 +10,11 @@ function Weather() {
 
   const [weather, setWeather] = useState([
     {
-      testName: '',
+      testName: "",
       data: null,
-      name: '',
-      newName: '',
-      icon: '',
+      name: "",
+      newName: "",
+      icon: "",
       windSpeed: 0,
       windDegree: 0,
       temp: 0,
@@ -27,11 +27,11 @@ function Weather() {
       return (
         <>
           <Text style={styles.text}>{weather.newName}</Text>
-          <Image alt='icon' source={{ uri: `https://openweathermap.org/img/wn/${weather.icon}@2x.png` }} style={styles.images} />
+          <Image alt="icon" source={{ uri: `https://openweathermap.org/img/wn/${weather.icon}@2x.png` }} style={styles.images} />
           <Text style={styles.text}>{Math.round(weather.temp)}°C</Text>
-          <Image alt='wind-arrow' source={require("../assets/images/arrow.png")} width="50px" style={{ transform: `rotate(${weather.windDegree}deg)` }, styles.images} />
+          <Image alt="wind-arrow" source={require("../assets/images/arrow.png")} width="50px" style={{ transform: `rotate(${weather.windDegree}deg)` }, styles.images} />
           <Text style={styles.text}>{Math.floor(weather.windSpeed * 3.6)}km/h</Text>
-          <Image alt='humidity' source={require("../assets/images/humidity.png")} style={styles.images} />
+          <Image alt="humidity" source={require("../assets/images/humidity.png")} style={styles.images} />
           <Text style={styles.text}>Humidity: {weather.humidity}%</Text>
         </>
       )
@@ -85,28 +85,28 @@ function Weather() {
       <Button title="Search" color="#ff5e5e" style={styles.searchButton} onPress={() => searchAction()} />
       {handleInfos()}
     </Container>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
   searchButton: {
     borderWidth: 1,
     height: 50,
-    width: '80%'
+    width: "80%"
   },
   container: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   images: {
     width: 75,
     height: 75,
   },
   text: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 30,
-    textAlign: 'center',
-    color: '#999999'
+    textAlign: "center",
+    color: "#999999"
   }
 });
 

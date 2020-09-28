@@ -1,20 +1,19 @@
-import React, { useState, useContext } from "react";
-import { Alert, Modal, StyleSheet, TouchableHighlight, View } from "react-native";
+import React, { useState, useContext } from 'react';
+import { Alert, Modal, StyleSheet, TouchableHighlight, View } from 'react-native';
 import { Container, Form, Item, Input, Header, Title, Toast, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
-
 import CtxTodo from './CtxTodo';
 
 const TodoModal = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [todos, setTodos] = useContext(CtxTodo);
   const [form, setForm] = useState({
-    title: ''
+    title: ""
   });
 
   const addTodoClose = () => {
     setTodos([...todos, form])
     setForm({
-      title: ''
+      title: ""
     })
     setModalVisible(!modalVisible)
   };
@@ -22,7 +21,7 @@ const TodoModal = () => {
   const addTodo = () => {
     setTodos([...todos, form])
     setForm({
-      title: ''
+      title: ""
     })
   };
 
@@ -40,7 +39,7 @@ const TodoModal = () => {
           <View style={styles.modalView}>
             <Container style={styles.buttonContainer}>
               <Text style={styles.new}>New Todo</Text>
-              <TouchableHighlight style={{ ...styles.openButton, backgroundColor: '#ffffff', margin: 0, width:'15%', padding: 0 }}  onPress={() => {  setModalVisible(!modalVisible);  }}>
+              <TouchableHighlight style={{ ...styles.openButton, backgroundColor: "#ffffff", margin: 0, width:"15%", padding: 0 }}  onPress={() => {  setModalVisible(!modalVisible);  }}>
                 <Text style={styles.closeText}>X</Text>
               </TouchableHighlight>
             </Container>
@@ -73,18 +72,18 @@ const TodoModal = () => {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: '100%',
-    height: '25%',
+    width: "100%",
+    height: "25%",
     flex: 1,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-end',
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "flex-end",
     borderRadius: 50,
     marginTop: 10
   },
   form: {
-    width: '90%',
-    height: '75%'
+    width: "90%",
+    height: "75%"
   },
   centeredView: {
     flex: 1,
@@ -92,8 +91,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   modalView: {
-    width: '80%',
-    height: '50%',
+    width: "80%",
+    height: "50%",
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
@@ -115,11 +114,12 @@ const styles = StyleSheet.create({
     elevation: 2
   },
   new: {
-    width: '80%', 
+    width: "80%", 
     fontWeight: "bold",
     textAlign: "center",
     fontSize: 23,
-    paddingLeft: 35
+    paddingLeft: 35,
+    color:"#243642"
   },
   closeText: {
     color: "#999999",

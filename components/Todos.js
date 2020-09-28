@@ -23,24 +23,24 @@ const Todos = () => {
         </Container>}
       <TodoModal />
     </Container>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
   todoPage: {
-    height: '100%',
+    height: "100%",
   },
   todoList: {
-    height: '55%',
-    maxHeight: '55%',
+    height: "55%",
+    maxHeight: "55%",
     marginTop: 30,
   },
   empty: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: '55%',
-    maxHeight: '55%',
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: "55%",
+    maxHeight: "55%",
     marginTop: 30,
   },
   emptyText: {
