@@ -17,36 +17,19 @@
 
 ## Sceenshots
 
-<div>
  <div display="flex" flexDirection="row" justifyContent= "space-between">
-        <p align="center">
-            <img width="460" height="300" src="">
-        </p>
-        <p align="center">
-            <img width="460" height="300" src="">
-        </p>
-        <p align="center">
-            <img width="460" height="300" src="">
-        </p>
-        <p align="center">
-            <img width="460" height="300" src="">
-        </p>
-        </div>
-
-        <div display="flex" flexDirection="row" justifyContent= "space-between">
-        <p align="center">
-            <img width="460" height="300" src="">
-        </p>
-        <p align="center">
-            <img width="460" height="300" src="">
-        </p>
-        <p align="center">
-            <img width="460" height="300" src="">
-        </p>
-        <p align="center">
-            <img width="460" height="300" src="">
-        </p>
-    </div>
+  <p align="center">
+   <img width="460" height="300" src="">
+  </p>
+  <p align="center">
+   <img width="460" height="300" src="">
+  </p>
+  <p align="center">
+   <img width="460" height="300" src="">
+  </p>
+  <p align="center">
+   <img width="460" height="300" src="">
+  </p>
 </div>
 
 ## Auteurs
