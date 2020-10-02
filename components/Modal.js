@@ -2,8 +2,13 @@ import React, { useState, useContext } from 'react';
 import { Alert, Modal, StyleSheet, TouchableHighlight, View } from 'react-native';
 import { Container, Form, Item, Input, Header, Title, Toast, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 import CtxTodo from './CtxTodo';
+import { CustomDarkTheme, CustomDefaultTheme } from './Theme';
+import CtxDarkTheme from './CtxDarkTheme';
+import { ThemeColors } from 'react-navigation';
 
 const TodoModal = () => {
+  const [darkTheme, setDarkTheme] = useContext(CtxDarkTheme);
+  const theme = darkTheme ? CustomDarkTheme : CustomDefaultTheme;
   const [modalVisible, setModalVisible] = useState(false);
   const [todos, setTodos] = useContext(CtxTodo);
   const [form, setForm] = useState({
@@ -36,11 +41,11 @@ const TodoModal = () => {
         }}
       >
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Container style={styles.buttonContainer}>
-              <Text style={styles.new}>New Todo</Text>
-              <TouchableHighlight style={{ ...styles.openButton, backgroundColor: "#ffffff", margin: 0, width:"15%", padding: 0 }}  onPress={() => {  setModalVisible(!modalVisible);  }}>
-                <Text style={styles.closeText}>X</Text>
+          <View style={{ ...styles.modalView, backgroundColor: theme.colors.background, shadowColor: theme.colors.shadowColor }}>
+            <Container style={{ ...styles.buttonContainer, backgroundColor: theme.colors.background }}>
+              <Text style={{ ...styles.new, color: theme.colors.text, backgroundColor: theme.colors.background }}>New Todo</Text>
+              <TouchableHighlight style={{ ...styles.openButton, backgroundColor: theme.colors.background, margin: 0, width: "15%", padding: 0 }} onPress={() => { setModalVisible(!modalVisible); }}>
+                <Text style={{...styles.closeText, color: theme.colors.closeText }}>X</Text>
               </TouchableHighlight>
             </Container>
             <Form style={styles.form}>
@@ -51,19 +56,20 @@ const TodoModal = () => {
                   value={form.title}
                   onChangeText={(e) => setForm({ ...form, title: e })}
                   placeholder="Title"
-                  placeholderTextColor="#999999" />
+                  placeholderTextColor={theme.colors.text}
+                  style={{ color: theme.colors.text }} />
               </Item>
-              <TouchableHighlight style={{ ...styles.openButton, marginTop: 50 }} onPress={addTodo}>
+              <TouchableHighlight style={{ ...styles.openButton, marginTop: 50, backgroundColor: theme.colors.modalButtons }} onPress={addTodo}>
                 <Text style={styles.openText}>Add & Create New</Text>
               </TouchableHighlight>
-              <TouchableHighlight style={{ ...styles.openButton, marginTop: 20 }} onPress={addTodoClose}>
+              <TouchableHighlight style={{ ...styles.openButton, marginTop: 20, backgroundColor: theme.colors.modalButtons }} onPress={addTodoClose}>
                 <Text style={styles.openText}>Add & Close</Text>
               </TouchableHighlight>
             </Form>
           </View>
         </View>
       </Modal>
-      <TouchableHighlight style={styles.openButton} onPress={() => { setModalVisible(true); }}>
+      <TouchableHighlight style={{ ...styles.openButton, backgroundColor: theme.colors.modalButtons }} onPress={() => { setModalVisible(true); }}>
         <Text style={styles.openText}>Add a todo !</Text>
       </TouchableHighlight>
     </View>
@@ -94,10 +100,8 @@ const styles = StyleSheet.create({
     width: "80%",
     height: "50%",
     margin: 20,
-    backgroundColor: "white",
     borderRadius: 20,
     alignItems: "center",
-    shadowColor: "#000",
     shadowOffset: {
       width: 5,
       height: 5
@@ -107,22 +111,19 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   openButton: {
-    backgroundColor: "#ff5e5e",
     borderRadius: 20,
     padding: 10,
     margin: 10,
     elevation: 2
   },
   new: {
-    width: "80%", 
+    width: "80%",
     fontWeight: "bold",
     textAlign: "center",
     fontSize: 23,
-    paddingLeft: 35,
-    color:"#243642"
+    paddingLeft: 35
   },
   closeText: {
-    color: "#999999",
     fontWeight: "bold",
     textAlign: "center",
     fontSize: 20

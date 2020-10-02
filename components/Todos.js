@@ -1,25 +1,30 @@
 import React, { useContext, useState } from 'react';
 import { Container, Form, Item, Input, Header, Title, Toast, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
-import Todo from './Todo';
+import { CustomDarkTheme, CustomDefaultTheme } from './Theme';
+import CtxDarkTheme from './CtxDarkTheme';
 import CtxTodo from './CtxTodo';
+import Todo from './Todo';
 import TodoModal from './Modal';
 
 
 const Todos = () => {
   const [todos, setTodos] = useContext(CtxTodo);
+  const [darkTheme, setDarkTheme] = useContext(CtxDarkTheme);
+  const theme = darkTheme ? CustomDarkTheme : CustomDefaultTheme;
+
 
   return (
-    <Container style={styles.todoPage}>
+    <Container style={{...styles.todoPage, backgroundColor: theme.colors.background}}>
       {todos.length > 0 ? 
-        <ScrollView style={styles.todoList}>
+        <ScrollView style={{...styles.todoList, backgroundColor: theme.colors.background}}>
           {todos.map((todo, index) => {
             return <Todo key={index} title={todo.title} describ={todo.describ} index={index} />
           })}
         </ScrollView> :
-        <Container style={styles.empty}>
-          <Text style={styles.emptyText}>You have no todo 😎</Text>
-          <Text style={styles.emptyText2}>Press the "Add a todo" button to create one</Text>
+        <Container style={{...styles.empty, backgroundColor: theme.colors.background}}>
+          <Text style={{...styles.emptyText, color: theme.colors.emptyText}}>You have no todo 😎</Text>
+          <Text style={{...styles.emptyText2, color: theme.colors.emptyText2}}>Press the "Add a todo" button to create one</Text>
         </Container>}
       <TodoModal />
     </Container>
@@ -44,13 +49,11 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   emptyText: {
-    color: "#999999",
     fontWeight: "bold",
     textAlign: "center",
     fontSize: 20
   },
   emptyText2: {
-    color: "#c4c4c4",
     textAlign: "center",
     fontSize: 15
   },

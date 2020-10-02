@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { Container } from 'native-base';
 import { Text, StyleSheet } from 'react-native';
+import { CustomDarkTheme, CustomDefaultTheme } from './Theme';
+import CtxDarkTheme from './CtxDarkTheme';
 
 const Calendar = () => {
-
+  const [darkTheme, setDarkTheme] = useContext(CtxDarkTheme);
+  const theme = darkTheme ? CustomDarkTheme : CustomDefaultTheme;
 
   return (
-    <Container style={styles.container}>
-      <Text style={styles.text}>Calendar</Text>
+    <Container style={{...styles.container, backgroundColor: theme.colors.background}}>
+      <Text style={{...styles.text, color: theme.colors.text}}>Calendar</Text>
     </Container>
   )
 };
