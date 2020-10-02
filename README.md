@@ -1,9 +1,57 @@
-## Todo-List-React-Native
+# Little Swiss Knife
 
-<p align="center">
-    Project under construction soon available !
-</p>
-<p align="center">
-    <img width="460" height="300" src="https://user-images.githubusercontent.com/53953648/93629270-4abf4780-f9e8-11ea-83f5-3d76a7be527c.jpeg">
 
-</p>
+### Pré-requis
+- npm/yarn
+- mysql
+- nodeJS
+
+### Installation
+- cloner le repository
+- lancer npm install ou yarn sur votre terminal
+- Suivre les instructions en commentaires dans les fichiers config_default.js
+
+## Démarrage
+
+- utiliser la commande ‘npm start’ ou ‘expo start’ en ligne de commande pour lancer l'application.
+
+## Sceenshots
+
+
+```html
+<pre>
+    <div display="flex" flexDirection="row" justifyContent= "space-between">
+        <p align="center">
+            <img width="460" height="300" src="">
+        </p>
+        <p align="center">
+            <img width="460" height="300" src="">
+        </p>
+        <p align="center">
+            <img width="460" height="300" src="">
+        </p>
+        <p align="center">
+            <img width="460" height="300" src="">
+        </p>
+        </div>
+
+        <div display="flex" flexDirection="row" justifyContent= "space-between">
+        <p align="center">
+            <img width="460" height="300" src="">
+        </p>
+        <p align="center">
+            <img width="460" height="300" src="">
+        </p>
+        <p align="center">
+            <img width="460" height="300" src="">
+        </p>
+        <p align="center">
+            <img width="460" height="300" src="">
+        </p>
+    </div>
+</pre>
+```
+
+
+## Auteurs
+**Alexis Barbier*
