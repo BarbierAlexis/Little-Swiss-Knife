@@ -1,7 +1,7 @@
 # Little Swiss Knife
 
 <p align="center">
- <img width="350" height="350" src="https://user-images.githubusercontent.com/53953648/94945008-562b6c00-04da-11eb-9277-5de9db8f8d94.jpg">
+ <img width="350" height="350" src="https://user-images.githubusercontent.com/53953648/95099996-ea8f0c00-0730-11eb-918f-3af2aee2ff3f.jpg">
 </p>
 
 
@@ -41,7 +41,7 @@ expo start
 ## Sceenshots
 
   <p align="center">
-   <img width="250" height="400" src="https://user-images.githubusercontent.com/53953648/94939014-da2d2600-04d1-11eb-94d1-ffa6efc5b842.PNG">
+   <img width="250" height="400" src="https://user-images.githubusercontent.com/53953648/95098959-9e8f9780-072f-11eb-9545-6d39f01752d1.PNG">
   </p>
   
 #### With the drawer menu you can access the different components of the application   
@@ -67,20 +67,29 @@ expo start
   </p>
   
 #### You can see the weather by geolocation or search another city
+
+  <p align="center">
+   <img width="250" height="400" src="https://user-images.githubusercontent.com/53953648/95098981-a2231e80-072f-11eb-91ae-82561590f210.PNG">
+  </p>
+  
+#### You can access to the calendar, an agenda function is coming soon..
   
 ### Dark Mode Avaible !
 
   <p align="center">
-   <img width="250" height="400" src="https://user-images.githubusercontent.com/53953648/94939087-ef09b980-04d1-11eb-9451-a6ff7de6dc84.PNG">
+   <img width="250" height="400" src="https://user-images.githubusercontent.com/53953648/95098969-a0595b00-072f-11eb-987b-da732453bcdf.PNG">
   </p>
   <p align="center">
-   <img width="250" height="400" src="https://user-images.githubusercontent.com/53953648/94939099-f335d700-04d1-11eb-8319-0d955528adee.PNG">
+   <img width="250" height="400" src="https://user-images.githubusercontent.com/53953648/95099661-78b6c280-0730-11eb-8516-84577214a48e.PNG">
   </p>
   <p align="center">
-   <img width="250" height="400" src="https://user-images.githubusercontent.com/53953648/94939101-f4670400-04d1-11eb-9cc1-bd26a26af1e2.PNG">
+   <img width="250" height="400" src="https://user-images.githubusercontent.com/53953648/95099665-79e7ef80-0730-11eb-8613-94304bceea77.PNG">
   </p>
   <p align="center">
-   <img width="250" height="400" src="https://user-images.githubusercontent.com/53953648/94939106-f630c780-04d1-11eb-8979-278ce5f98043.PNG">
+   <img width="250" height="400" src="https://user-images.githubusercontent.com/53953648/95099670-7b191c80-0730-11eb-9657-6c9c3b0e95fe.PNG">
+  </p>
+  <p align="center">
+   <img width="250" height="400" src="https://user-images.githubusercontent.com/53953648/95098977-a18a8800-072f-11eb-909a-405a11b895d4.PNG">
   </p>
 
 ## Autor
