@@ -19,15 +19,15 @@ import { createStackNavigator } from '@react-navigation/stack';
 import DrawerContent from './components/DrawerContent';
 import HomePage from './components/HomePage';
 import Todos from './components/Todos';
-import Meteo from './components/Meteo';
-import Calendar from './components/Calendar';
+import Weather from './components/Weather';
+import CalendarComponent from './components/Calendar';
 import { ThemeContext } from 'react-navigation';
 
 
 const Drawer = createDrawerNavigator();
 const HomeStack = createStackNavigator();
 const TodosStack = createStackNavigator();
-const MeteoStack = createStackNavigator();
+const WeatherStack = createStackNavigator();
 const CalendarStack = createStackNavigator();
 
 
@@ -76,9 +76,9 @@ const App = () => {
     </TodosStack.Navigator>
   );
 
-  const MeteoStackScreen = ({ navigation }) => (
-    <MeteoStack.Navigator>
-      <MeteoStack.Screen name="Meteo" component={Meteo} options={{
+  const WeatherStackScreen = ({ navigation }) => (
+    <WeatherStack.Navigator>
+      <WeatherStack.Screen name="Weather" component={Weather} options={{
         title: "Little Swiss Knife",
         headerStyle: {
           backgroundColor: theme.colors.headerBackground,
@@ -92,12 +92,12 @@ const App = () => {
           <Icon.Button name="ios-menu" size={25} backgroundColor={theme.colors.headerBackground }color={theme.colors.headerText} onPress={() => navigation.openDrawer()}></Icon.Button>
         )
       }} />
-    </MeteoStack.Navigator>
+    </WeatherStack.Navigator>
   );
 
   const CalendarStackScreen = ({ navigation }) => (
     <CalendarStack.Navigator>
-      <CalendarStack.Screen name="Calendar" component={Calendar} options={{
+      <CalendarStack.Screen name="Calendar" component={CalendarComponent} options={{
         title: "Little Swiss Knife",
         headerStyle: {
           backgroundColor: theme.colors.headerBackground,
@@ -123,7 +123,7 @@ const App = () => {
               <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />} initialRouteName="Home" overlayColor={theme.colors.drawerOverlay} drawerType="front" hideStatusBar={true}>
                 <Drawer.Screen name="HomePage" component={HomeStackScreen} />
                 <Drawer.Screen name="Todos" component={TodosStackScreen} />
-                <Drawer.Screen name="Meteo" component={MeteoStackScreen} />
+                <Drawer.Screen name="Weather" component={WeatherStackScreen} />
                 <Drawer.Screen name="Calendar" component={CalendarStackScreen} />
               </Drawer.Navigator>
             </NavigationContainer>

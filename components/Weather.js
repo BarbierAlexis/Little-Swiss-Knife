@@ -26,7 +26,7 @@ const Weather = () => {
     }
   ]);
 
-  handleInfos = () => {
+  const handleInfos = () => {
     if (weather.data) {
       return (
         <>
@@ -47,7 +47,6 @@ const Weather = () => {
       axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${apiKeyWeather}`)
 
         .then((response) => {
-          console.log(response)
           setWeather({
             data: true,
             newName: response.data.name,
@@ -61,17 +60,16 @@ const Weather = () => {
     });
   }, []);
 
-  handleInput = (value) => {
+  const handleInput = (value) => {
     setWeather({ testName: value })
   };
 
-  searchAction = () => {
+  const searchAction = () => {
 
     weather.testName ? setWeather({ name: weather.testName }) : null
 
     axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${weather.name}&units=metric&appid=${apiKeyWeather}`)
       .then((response) => {
-        console.log(response)
         setWeather({
           data: true,
           name: response.data.name,
@@ -89,7 +87,7 @@ const Weather = () => {
     <Container style={{...styles.container, backgroundColor: theme.colors.background}}>
       <Input onChangeText={value => handleInput(value)} placeholderTextColor={theme.colors.text} placeholder="Enter your city" style={{...styles.textInput, color: theme.colors.text}} />
       <Button title="Search" color="#ff5e5e" style={styles.searchButton} onPress={() => searchAction()} />
-      {handleInfos()}
+      {handleInfos()} 
     </Container>
   );
 };

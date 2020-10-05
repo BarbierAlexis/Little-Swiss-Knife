@@ -45,10 +45,10 @@ const DrawerContent = ({ navigation }) => {
             </View>
           </TouchableHighlight>
 
-          <TouchableHighlight underlayColor={'#c4c4c4'} onPress={() => navigation.navigate("Meteo")}>
+          <TouchableHighlight underlayColor={'#c4c4c4'} onPress={() => navigation.navigate("Weather")}>
             <View style={styles.drawerLinks}>
               <Icon name="sun" size={25} color={theme.colors.drawerText}></Icon>
-              <Text style={{...styles.linksText, color: theme.colors.drawerText}}>Meteo</Text>
+              <Text style={{...styles.linksText, color: theme.colors.drawerText}}>Weather</Text>
             </View>
           </TouchableHighlight>
 
